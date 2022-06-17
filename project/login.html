@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+    #navbar{
+        background-color: teal;
+        height:80px;
+        display: flex;
+       align-items: center;
+       padding-left:30px;
+    }
+    #navbar>img{
+        width:20%;
+        height:80%;
+    }
+    input{
+        width:30%;
+        margin:auto;
+        display: block;
+        padding:10px;
+        font-size: 20px;
+        border-radius:10px;
+        margin-top:20px;
+        /* border:none; */
+        text-align: center;
+
+    }
+    #btn1{
+        width:30%;
+        margin:auto;
+        display: block;
+        padding:10px;
+        font-size: 20px;
+        border-radius:10px;
+        margin-top:20px;
+        background-color: teal;
+        color:white;
+        border:none;
+    }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <img src="https://assets.pharmeasy.in/web-assets/dist/fca22bc9.png?dim=256x0" alt="">
+        </div>
+        <input id="num" type="number" placeholder="Enter Your Number">
+        <button id="btn1">Continue</button>
+</body>
+</html>
+<script>
+    var button1=document.querySelector("#btn1").addEventListener("click",login)
+    var arr1 =JSON.parse(localStorage.getItem("signupStorage"))
+    function login(){
+        // console.log("signup")
+        var number=document.querySelector("#num").value;
+        if(checkLogin(number)==true){
+            alert("login successfully")
+            window.location.href="index.html"
+        }
+        else{
+            alert("wrong number")
+        }
+    }
+    function checkLogin(number){
+        var filtered=arr1.filter(function(el){
+           return el.numb == number
+        })
+           if(filtered.length>0){
+            return true;
+           }
+          else{
+            return false;
+          }
+        
+    }
+</script>
